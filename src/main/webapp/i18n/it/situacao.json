@@ -1,0 +1,9 @@
+{
+    "esaveApp": {
+        "Situacao" : {
+            "null": "",
+            "ATIVO": "ATIVO",
+            "INATIVO": "INATIVO"
+        }
+    }
+}

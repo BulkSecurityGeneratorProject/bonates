@@ -1,0 +1,9 @@
+{
+    "esaveApp": {
+        "Periodicidade" : {
+            "null": "",
+            "MES": "MES",
+            "RESGATE": "RESGATE"
+        }
+    }
+}

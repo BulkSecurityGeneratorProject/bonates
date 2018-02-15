@@ -1,0 +1,12 @@
+{
+    "esaveApp": {
+        "TipoInvestimento" : {
+            "null": "",
+            "RENDA_FIXA": "RENDA_FIXA",
+            "FUNDO_INVESTIMENTO": "FUNDO_INVESTIMENTO",
+            "BOLSA": "BOLSA",
+            "CAMBIO_DOLAR": "CAMBIO_DOLAR",
+            "POUPANCA": "POUPANCA"
+        }
+    }
+}

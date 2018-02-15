@@ -1,0 +1,232 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myContaLabel" data-translate="esaveApp.conta.home.createOrEditLabel">Create or edit a Conta</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.conta.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.conta.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="esaveApp.conta.conta" for="field_conta">Conta</label>
+            <input type="text" class="form-control" name="conta" id="field_conta"
+                    ng-model="vm.conta.conta"
+                    required ng-minlength="1" ng-maxlength="20"/>
+            <div ng-show="editForm.conta.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.conta.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.conta.$error.minlength" data-translate="entity.validation.minlength" translate-value-min="1">
+                    This field is required to be at least 1 characters.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.conta.$error.maxlength" data-translate="entity.validation.maxlength" translate-value-max="20">
+                    This field cannot be longer than 20 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="esaveApp.conta.situacao" for="field_situacao">Situacao</label>
+            <select class="form-control" name="situacao" ng-model="vm.conta.situacao" id="field_situacao" required>
+                <option value="ATIVO" data-translate="esaveApp.Situacao.ATIVO">ATIVO</option>
+                <option value="INATIVO" data-translate="esaveApp.Situacao.INATIVO">INATIVO</option>
+            </select>
+            <div ng-show="editForm.situacao.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.situacao.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="esaveApp.conta.tipo" for="field_tipo">Tipo</label>
+            <select class="form-control" name="tipo" ng-model="vm.conta.tipo" id="field_tipo" required>
+                <option value="CONTA_CORRENTE" data-translate="esaveApp.TipoConta.CONTA_CORRENTE">CONTA_CORRENTE</option>
+                <option value="CARTAO_DE_CREDITO" data-translate="esaveApp.TipoConta.CARTAO_DE_CREDITO">CARTAO_DE_CREDITO</option>
+                <option value="CARTEIRA_DINHEIRO" data-translate="esaveApp.TipoConta.CARTEIRA_DINHEIRO">CARTEIRA_DINHEIRO</option>
+                <option value="CONTA_INVESTIMENTO" data-translate="esaveApp.TipoConta.CONTA_INVESTIMENTO">CONTA_INVESTIMENTO</option>
+                <option value="CONTA_CORRETORA" data-translate="esaveApp.TipoConta.CONTA_CORRETORA">CONTA_CORRETORA</option>
+            </select>
+            <div ng-show="editForm.tipo.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.tipo.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="esaveApp.conta.tipoInvestimento" for="field_tipoInvestimento">Tipo Investimento</label>
+            <select class="form-control" name="tipoInvestimento" ng-model="vm.conta.tipoInvestimento" id="field_tipoInvestimento" required>
+                <option value="RENDA_FIXA" data-translate="esaveApp.TipoInvestimento.RENDA_FIXA">RENDA_FIXA</option>
+                <option value="FUNDO_INVESTIMENTO" data-translate="esaveApp.TipoInvestimento.FUNDO_INVESTIMENTO">FUNDO_INVESTIMENTO</option>
+                <option value="BOLSA" data-translate="esaveApp.TipoInvestimento.BOLSA">BOLSA</option>
+                <option value="CAMBIO_DOLAR" data-translate="esaveApp.TipoInvestimento.CAMBIO_DOLAR">CAMBIO_DOLAR</option>
+                <option value="POUPANCA" data-translate="esaveApp.TipoInvestimento.POUPANCA">POUPANCA</option>
+            </select>
+            <div ng-show="editForm.tipoInvestimento.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.tipoInvestimento.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="esaveApp.conta.vencimento" for="field_vencimento">Vencimento</label>
+            <input type="number" class="form-control" name="vencimento" id="field_vencimento"
+                    ng-model="vm.conta.vencimento"
+                    required/>
+            <div ng-show="editForm.vencimento.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.vencimento.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.vencimento.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="esaveApp.conta.melhorCompra" for="field_melhorCompra">Melhor Compra</label>
+            <input type="number" class="form-control" name="melhorCompra" id="field_melhorCompra"
+                    ng-model="vm.conta.melhorCompra"
+                    required min="1" max="31"/>
+            <div ng-show="editForm.melhorCompra.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.melhorCompra.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.melhorCompra.$error.min" data-translate="entity.validation.min" translate-value-min="1">
+                    This field should be at least 1.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.melhorCompra.$error.max" data-translate="entity.validation.max" translate-value-max="31">
+                    This field cannot be more than 31.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.melhorCompra.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="esaveApp.conta.anoMesFatura" for="field_anoMesFatura">Ano Mes Fatura</label>
+            <input type="text" class="form-control" name="anoMesFatura" id="field_anoMesFatura"
+                    ng-model="vm.conta.anoMesFatura"
+                    required/>
+            <div ng-show="editForm.anoMesFatura.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.anoMesFatura.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="esaveApp.conta.intervaloIR" for="field_intervaloIR">Intervalo IR</label>
+            <input type="number" class="form-control" name="intervaloIR" id="field_intervaloIR"
+                    ng-model="vm.conta.intervaloIR"
+                    required min="0"/>
+            <div ng-show="editForm.intervaloIR.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.intervaloIR.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.intervaloIR.$error.min" data-translate="entity.validation.min" translate-value-min="0">
+                    This field should be at least 0.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.intervaloIR.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="esaveApp.conta.periodicidadeIR" for="field_periodicidadeIR">Periodicidade IR</label>
+            <select class="form-control" name="periodicidadeIR" ng-model="vm.conta.periodicidadeIR" id="field_periodicidadeIR" required>
+                <option value="MES" data-translate="esaveApp.Periodicidade.MES">MES</option>
+                <option value="RESGATE" data-translate="esaveApp.Periodicidade.RESGATE">RESGATE</option>
+            </select>
+            <div ng-show="editForm.periodicidadeIR.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.periodicidadeIR.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="esaveApp.conta.ultimoRecolhimentoIR" for="field_ultimoRecolhimentoIR">Ultimo Recolhimento IR</label>
+                <div class="input-group">
+                    <input id="field_ultimoRecolhimentoIR" type="text" class="form-control" name="ultimoRecolhimentoIR" uib-datepicker-popup="{{dateformat}}" ng-model="vm.conta.ultimoRecolhimentoIR" is-open="vm.datePickerOpenStatus.ultimoRecolhimentoIR"
+                    required/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('ultimoRecolhimentoIR')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.ultimoRecolhimentoIR.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.ultimoRecolhimentoIR.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="esaveApp.conta.aliquotaIR" for="field_aliquotaIR">Aliquota IR</label>
+            <input type="number" class="form-control" name="aliquotaIR" id="field_aliquotaIR"
+                    ng-model="vm.conta.aliquotaIR"
+                    required min="0"/>
+            <div ng-show="editForm.aliquotaIR.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.aliquotaIR.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.aliquotaIR.$error.min" data-translate="entity.validation.min" translate-value-min="0">
+                    This field should be at least 0.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.aliquotaIR.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="esaveApp.conta.rendimento" for="field_rendimento">Rendimento</label>
+            <input type="number" class="form-control" name="rendimento" id="field_rendimento"
+                    ng-model="vm.conta.rendimento"
+                    required min="0"/>
+            <div ng-show="editForm.rendimento.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.rendimento.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.rendimento.$error.min" data-translate="entity.validation.min" translate-value-min="0">
+                    This field should be at least 0.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.rendimento.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

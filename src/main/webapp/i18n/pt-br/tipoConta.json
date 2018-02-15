@@ -1,0 +1,12 @@
+{
+    "esaveApp": {
+        "TipoConta" : {
+            "null": "",
+            "CONTA_CORRENTE": "CONTA_CORRENTE",
+            "CARTAO_DE_CREDITO": "CARTAO_DE_CREDITO",
+            "CARTEIRA_DINHEIRO": "CARTEIRA_DINHEIRO",
+            "CONTA_INVESTIMENTO": "CONTA_INVESTIMENTO",
+            "CONTA_CORRETORA": "CONTA_CORRETORA"
+        }
+    }
+}

@@ -1,0 +1,82 @@
+<div>
+    <h2 data-translate="esaveApp.conta.home.title">Contas</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="conta.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="esaveApp.conta.home.createLabel">
+                        Create new Conta
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="conta"><span data-translate="esaveApp.conta.conta">Conta</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="situacao"><span data-translate="esaveApp.conta.situacao">Situacao</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="tipo"><span data-translate="esaveApp.conta.tipo">Tipo</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="tipoInvestimento"><span data-translate="esaveApp.conta.tipoInvestimento">Tipo Investimento</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="vencimento"><span data-translate="esaveApp.conta.vencimento">Vencimento</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="melhorCompra"><span data-translate="esaveApp.conta.melhorCompra">Melhor Compra</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="anoMesFatura"><span data-translate="esaveApp.conta.anoMesFatura">Ano Mes Fatura</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="intervaloIR"><span data-translate="esaveApp.conta.intervaloIR">Intervalo IR</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="periodicidadeIR"><span data-translate="esaveApp.conta.periodicidadeIR">Periodicidade IR</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="ultimoRecolhimentoIR"><span data-translate="esaveApp.conta.ultimoRecolhimentoIR">Ultimo Recolhimento IR</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="aliquotaIR"><span data-translate="esaveApp.conta.aliquotaIR">Aliquota IR</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="rendimento"><span data-translate="esaveApp.conta.rendimento">Rendimento</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="conta in vm.contas track by conta.id">
+                    <td><a ui-sref="conta-detail({id:conta.id})">{{conta.id}}</a></td>
+                    <td>{{conta.conta}}</td>
+                    <td data-translate="{{'esaveApp.Situacao.' + conta.situacao}}">{{conta.situacao}}</td>
+                    <td data-translate="{{'esaveApp.TipoConta.' + conta.tipo}}">{{conta.tipo}}</td>
+                    <td data-translate="{{'esaveApp.TipoInvestimento.' + conta.tipoInvestimento}}">{{conta.tipoInvestimento}}</td>
+                    <td>{{conta.vencimento}}</td>
+                    <td>{{conta.melhorCompra}}</td>
+                    <td>{{conta.anoMesFatura}}</td>
+                    <td>{{conta.intervaloIR}}</td>
+                    <td data-translate="{{'esaveApp.Periodicidade.' + conta.periodicidadeIR}}">{{conta.periodicidadeIR}}</td>
+                        <td>{{conta.ultimoRecolhimentoIR | date:'mediumDate'}}</td>
+                    <td>{{conta.aliquotaIR}}</td>
+                    <td>{{conta.rendimento}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="conta-detail({id:conta.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="conta.edit({id:conta.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="conta.delete({id:conta.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+    </div>
+    <uib-pager total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pager>
+</div>

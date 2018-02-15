@@ -1,0 +1,14 @@
+version: '2'
+services:
+    esave-app:
+        image: esave
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:mysql://esave-mysql:3306/esave?useUnicode=true&characterEncoding=utf8&useSSL=false
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+        ports:
+            - 8080:8080
+    esave-mysql:
+        extends:
+            file: mysql.yml
+            service: esave-mysql

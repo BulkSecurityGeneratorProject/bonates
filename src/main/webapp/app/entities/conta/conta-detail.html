@@ -1,0 +1,67 @@
+
+<div>
+    <h2><span data-translate="esaveApp.conta.detail.title">Conta</span> {{vm.conta.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="esaveApp.conta.conta">Conta</span></dt>
+        <dd>
+            <span>{{vm.conta.conta}}</span>
+        </dd>
+        <dt><span data-translate="esaveApp.conta.situacao">Situacao</span></dt>
+        <dd>
+            <span data-translate="{{'esaveApp.Situacao.' + vm.conta.situacao}}">{{vm.conta.situacao}}</span>
+        </dd>
+        <dt><span data-translate="esaveApp.conta.tipo">Tipo</span></dt>
+        <dd>
+            <span data-translate="{{'esaveApp.TipoConta.' + vm.conta.tipo}}">{{vm.conta.tipo}}</span>
+        </dd>
+        <dt><span data-translate="esaveApp.conta.tipoInvestimento">Tipo Investimento</span></dt>
+        <dd>
+            <span data-translate="{{'esaveApp.TipoInvestimento.' + vm.conta.tipoInvestimento}}">{{vm.conta.tipoInvestimento}}</span>
+        </dd>
+        <dt><span data-translate="esaveApp.conta.vencimento">Vencimento</span></dt>
+        <dd>
+            <span>{{vm.conta.vencimento}}</span>
+        </dd>
+        <dt><span data-translate="esaveApp.conta.melhorCompra">Melhor Compra</span></dt>
+        <dd>
+            <span>{{vm.conta.melhorCompra}}</span>
+        </dd>
+        <dt><span data-translate="esaveApp.conta.anoMesFatura">Ano Mes Fatura</span></dt>
+        <dd>
+            <span>{{vm.conta.anoMesFatura}}</span>
+        </dd>
+        <dt><span data-translate="esaveApp.conta.intervaloIR">Intervalo IR</span></dt>
+        <dd>
+            <span>{{vm.conta.intervaloIR}}</span>
+        </dd>
+        <dt><span data-translate="esaveApp.conta.periodicidadeIR">Periodicidade IR</span></dt>
+        <dd>
+            <span data-translate="{{'esaveApp.Periodicidade.' + vm.conta.periodicidadeIR}}">{{vm.conta.periodicidadeIR}}</span>
+        </dd>
+        <dt><span data-translate="esaveApp.conta.ultimoRecolhimentoIR">Ultimo Recolhimento IR</span></dt>
+        <dd>
+            <span>{{vm.conta.ultimoRecolhimentoIR | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="esaveApp.conta.aliquotaIR">Aliquota IR</span></dt>
+        <dd>
+            <span>{{vm.conta.aliquotaIR}}</span>
+        </dd>
+        <dt><span data-translate="esaveApp.conta.rendimento">Rendimento</span></dt>
+        <dd>
+            <span>{{vm.conta.rendimento}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="conta-detail.edit({id:vm.conta.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

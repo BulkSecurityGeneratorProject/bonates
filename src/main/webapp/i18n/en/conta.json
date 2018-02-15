@@ -1,0 +1,32 @@
+{
+    "esaveApp": {
+        "conta" : {
+            "home": {
+                "title": "Contas",
+                "createLabel": "Create a new Conta",
+                "createOrEditLabel": "Create or edit a Conta"
+            },
+            "created": "A new Conta is created with identifier {{ param }}",
+            "updated": "A Conta is updated with identifier {{ param }}",
+            "deleted": "A Conta is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Conta {{ id }}?"
+            },
+            "detail": {
+                "title": "Conta"
+            },
+            "conta": "Conta",
+            "situacao": "Situacao",
+            "tipo": "Tipo",
+            "tipoInvestimento": "Tipo Investimento",
+            "vencimento": "Vencimento",
+            "melhorCompra": "Melhor Compra",
+            "anoMesFatura": "Ano Mes Fatura",
+            "intervaloIR": "Intervalo IR",
+            "periodicidadeIR": "Periodicidade IR",
+            "ultimoRecolhimentoIR": "Ultimo Recolhimento IR",
+            "aliquotaIR": "Aliquota IR",
+            "rendimento": "Rendimento"
+        }
+    }
+}
