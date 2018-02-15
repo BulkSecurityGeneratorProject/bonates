@@ -1,0 +1,2 @@
+# bonates
+JHipster Demo
